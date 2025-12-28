@@ -1,9 +1,14 @@
-version: '3.8'
+version: "3.9"
 
 services:
-  api:
+  compiler:
     build: .
     ports:
       - "9001:9001"
     volumes:
+      - code_temp:/app/temp
       - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  code_temp:
+    name: shared_compiler_vol
